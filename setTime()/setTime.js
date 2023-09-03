@@ -1,3 +1,5 @@
+// timeout ::-> aatla time pachi .. function work kerse... not repetative
+
 
 function a()
 {
