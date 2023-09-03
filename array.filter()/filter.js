@@ -1,3 +1,5 @@
+// filter :: current value mathi specific value fetch keri ne new array bannavavo.
+
 let array1 = [10,20,30,40,50,60,70,80,90,100]
 
         //bijo array ahia create nai kervo try to do everything in sequence, etle ahia pela function create kervanu tyare bad fucntionn call ...
