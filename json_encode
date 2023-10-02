@@ -1,0 +1,52 @@
+//aa function ee data ne json ma fervva vapray che ...... php ma aa function vapray che...  
+
+
+// this is php file......
+
+src={$row['song_image']}  ===> in this { } is used to insert values .....
+
+<?php
+                    $connection = mysqli_connect("localhost", "root", "", "demo");
+
+                    if (!$connection) {
+                        die("Not connected" . mysqli_connect_error());
+                    }
+
+                    $query = "SELECT * FROM `song` WHERE `song_artist`= 'Arijit_singh'   ";
+                    $result = mysqli_query($connection, $query);
+
+                    if ($result) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $songFile = json_encode($row['song_file']);
+                            $songImage = json_encode($row['song_image']);
+                            $songName = json_encode($row['song_name']);
+                            $songLyrics = json_encode($row['song_lyrics']);
+                    
+                            echo "<div id='artist_song_div' onclick='singer_song_click($songFile, $songImage, $songName, $songLyrics)'>";
+                            echo "<div class='artist_song_div_manage' id='artist_song_div_img'>";
+                            echo "<img style='height:100%' src={$row['song_image']}>";
+                            echo "</div>";
+                            echo "<div class='artist_song_div_manage' id='artist_song_div_songname'>";
+                            echo "<h4 style='color: white;font-weight:lighter'>{$row['song_name']}</h4>";
+                            echo "</div>";
+                            echo "<div class='artist_song_div_manage' id='artist_song_div_artistname'>";
+                            echo "<h5 style='color: white; font-weight:lighter'>{$row['song_artist']}</h5>";
+                            echo "</div>";
+                            echo "</div>";
+                        }
+                    }
+                    
+                  ?>
+
+
+// this is js file
+
+function singer_song_click(song , poster , name , lyrics)
+        {
+            document.getElementById("song").src = song;
+            document.getElementById("pbimg").src = poster;
+            document.getElementById("play").innerHTML = '<i class="fa-solid fa-play"></i>'; 
+            document.getElementById("song-name").innerHTML = name;
+            document.getElementById("lyrics_area").innerHTML = lyrics;
+
+        } 
